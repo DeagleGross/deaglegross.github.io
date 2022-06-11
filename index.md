@@ -1,5 +1,2 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Welcome, my name is Dima, I am a .NET developer, and I always forget what I read about.  
+Here is my storage of any CS related information. I am happy, if you also find it useful :)
