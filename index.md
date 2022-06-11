@@ -2,9 +2,5 @@ Welcome, my name is Dima, I am a .NET developer, and I always forget what I read
 Here is my storage of any CS related information. I am happy, if you also find it useful :)
 
 <ul>
-    {% for post in site.posts %}
-        <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
-    {% endfor %}  
+    <li>[Dotnet Memory Expert Course](./_posts/Dotnet%20Memory%20Expert/main.md)</li>
 </ul>
