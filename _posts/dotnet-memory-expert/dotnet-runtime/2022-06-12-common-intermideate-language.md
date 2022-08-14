@@ -1,5 +1,6 @@
 # Common Intermediate Language (CIL)
 
+What is a `.dll` file?
 - It is a simple instructions text file (stored in binary format usually)
 - it represents operations on *abstract stack-based* machine. And it is not of .NET virtual machine, it is an **abstract** one
 - it is called **evaluation stack**
