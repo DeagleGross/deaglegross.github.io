@@ -30,7 +30,7 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
+	width: 960px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
@@ -95,10 +95,16 @@ code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
 	border-radius: 2px;
+	font-size: 0.875em;
 }
 pre {
-	padding: 1.5em;
+	padding: 1.25em 1.5em;
 	border-radius: 8px;
+	/* Body text is 20px; monospace at that size fits very few characters per line. */
+	font-size: 0.8em;
+	line-height: 1.5;
+	tab-size: 4;
+	overflow-x: auto;
 }
 pre > code {
 	all: unset;
@@ -113,7 +119,7 @@ hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
 }
-@media (max-width: 720px) {
+@media (max-width: 960px) {
 	body {
 		font-size: 18px;
 	}

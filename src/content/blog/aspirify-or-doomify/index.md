@@ -5,24 +5,22 @@ pubDate: 'Aug 23 2026'
 heroImage: './hero.png'
 ---
 
-I spend most of my day in C# — mostly inside [dotnet/aspnetcore](https://github.com/dotnet/aspnetcore), where a
-surprising amount of interesting detail never makes it out of a pull request description. This blog is where I
-plan to write those details down.
+That's my first article - I wanted it to be short and fun. It was always exciting to read about legendary DOOM game being run in [Excel](https://github.com/Pranshul-Thakur/DOOM-in-excel) or on the [pregnancy test](https://www.reddit.com/r/gaming/comments/ncmegl/doom_running_on_a_pregnancy_test/). Since I am not a hardware expert (yet?), I decided to connect DOOM to something I am aware of (and actually even contributed a small feature to) - [Aspire](https://aspire.dev).
 
-## What to expect here
+Aspire is amazing: it has many definitions for different use-cases, but for me it's a tool to manage all of my dependencies in the inner-loop. Let's consider this example:
 
-- ASP.NET Core internals: servers, hosting, middleware, and the bits of the stack people rarely look at.
-- Performance work: benchmarks, allocation hunting, and the occasional disassembly rabbit hole.
-- Diagnostics: dumps, traces, and the tooling I reach for when something misbehaves in production.
-- Short notes about things I had to look up twice.
+```csharp
+var builder = DoomedApplication.CreateBuilder(args);
 
-## How this site works
+var redis = builder.AddRedis("redis");
+var storage = builder.AddAzureStorage("storage");
+var postgres = builder.AddPostgres("postgres");
 
-The whole site is a static [Astro](https://astro.build/) project. Posts are plain Markdown files in
-`src/content/blog/`, validated at build time by a Zod schema, so a typo in a date or a missing description
-fails the build instead of quietly shipping.
+var api = builder.AddProject<Projects.AspireDoomify_Api>("api")
+    .WithReference(redis)
+    .WithReference(blobs)
+    .WithReference(database);
+```
 
-Every push to `main` runs a GitHub Actions workflow that builds the site and publishes it to GitHub Pages.
-There is no CMS, no database, and no server — just files in a repo.
+This aspire host is trivial - we have a web-api, which has a dependency on redis, azure storage and postgres.
 
-If something here is wrong, the source is a few clicks away and pull requests are welcome.
