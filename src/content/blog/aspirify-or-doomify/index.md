@@ -2,7 +2,7 @@
 title: 'Asprify or Doomify?'
 description: 'Can you play Doom while managing your Aspire resources?'
 pubDate: 'Aug 23 2026'
-heroImage: '../../assets/asprify-or-doomify.jpg'
+heroImage: './hero.png'
 ---
 
 I spend most of my day in C# — mostly inside [dotnet/aspnetcore](https://github.com/dotnet/aspnetcore), where a

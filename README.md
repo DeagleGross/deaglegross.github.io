@@ -21,7 +21,16 @@ npm run preview   # serve the built dist/ locally
 
 ## Adding a post
 
-Create `src/content/blog/my-new-post.md` — the filename becomes the URL slug (`/blog/my-new-post/`):
+Each post is a folder under `src/content/blog/`. The folder name becomes the URL slug, and the post itself is `index.md` inside it:
+
+```
+src/content/blog/
+└── my-new-post/        →  /blog/my-new-post/
+    ├── index.md
+    └── hero.png
+```
+
+Keeping images in the post folder means everything for one post lives together, and deleting the folder removes the post and its assets in one go.
 
 ````markdown
 ---
@@ -29,13 +38,17 @@ title: 'Why my endpoint allocates'
 description: 'Shown on the index, in the RSS feed, and as the meta description.'
 pubDate: 'Aug 23 2026'
 updatedDate: 'Aug 24 2026'
-heroImage: '../../assets/*.jpg'
+heroImage: './hero.png'
 ---
 
 Body in Markdown. Use ```csharp fences for C#.
 ````
 
-`title`, `description` and `pubDate` are required; `updatedDate` and `heroImage` are optional. `heroImage` is a path relative to the Markdown file and must point at a file under `src/assets/`. The schema lives in [`src/content.config.ts`](src/content.config.ts) and is enforced at build time, so a missing field or an unparseable date fails the build.
+`title`, `description` and `pubDate` are required; `updatedDate` and `heroImage` are optional. `heroImage` is a path relative to the Markdown file — `./hero.png` for a colocated image. Astro optimizes and fingerprints it at build time, so large source images are fine.
+
+Inline images work the same way: `![Alt text](./diagram.png)`.
+
+The schema lives in [`src/content.config.ts`](src/content.config.ts) and is enforced at build time, so a missing field or an unparseable date fails the build.
 
 Nothing else to register — the index, post page, RSS feed and sitemap pick it up automatically.
 
