@@ -1,0 +1,35 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const description = 'A little about me and what I work on.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About | ${SITE_TITLE}`} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<p>
+				I am Dima, a software engineer currently working on <a href="https://github.com/dotnet/aspnetcore">dotnet/aspnetcore</a> at Microsoft.
+			    Mostly working on networking, performance and features. But also contributing to other parts of the stack.
+			</p>
+
+			<p>
+				I am also interested in game dev, distributed systems and many other parts of programming.
+				Worked in Kaspersky, AliExpress and Microsoft.
+			</p>
+
+			<p>
+				Opinions here are my own. If you find a mistake, the source of this site is public and
+				corrections are welcome.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
