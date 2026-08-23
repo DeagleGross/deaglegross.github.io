@@ -12,6 +12,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "placeholder": "node scripts/generate-placeholder.mjs",
+    "hero": "node scripts/generate-doom-hero.mjs",
     "astro": "astro"
   },
   "dependencies": {
