@@ -99,4 +99,4 @@ private async Task<long> ReadNewEventsAsync(long position, CancellationToken can
 }
 ```
 
-That's basically it - now you can run the game and manage your Aspire resources simultaneosly!
+A technology should not be relied upon until it runs Doom, and we just proved **Aspire can run Doom**!
