@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { GITHUB_URL, SITE_TITLE } from '../consts';
+import { SITE_TITLE } from '../consts';
 
 const description = 'A little about me and what I work on.';
 ---
@@ -15,27 +15,15 @@ const description = 'A little about me and what I work on.';
 	<body>
 		<Header />
 		<main>
-			<h1>About</h1>
 			<p>
-				I'm Dmitry Korolev, a software engineer working on <a
-					href="https://github.com/dotnet/aspnetcore">dotnet/aspnetcore</a
-				>. Day to day that means C#, HTTP servers, and a fair amount of time spent figuring out why
-				something is slower than it should be.
+				I am Dima, a software engineer currently working on <a href="https://github.com/dotnet/aspnetcore">dotnet/aspnetcore</a> at Microsoft.
+			    Mostly working on networking, performance and features. But also contributing to other parts of the stack.
 			</p>
 
-			<h2>What I write about</h2>
-			<ul>
-				<li>ASP.NET Core internals — hosting, servers, middleware, endpoint routing.</li>
-				<li>Performance: benchmarking, allocation tracking, and reading disassembly when needed.</li>
-				<li>Diagnostics: dumps, traces, and the tooling around them.</li>
-				<li>Short notes about things that took me longer to figure out than they should have.</li>
-			</ul>
-
-			<h2>Elsewhere</h2>
-			<ul>
-				<li><a href={GITHUB_URL}>GitHub</a></li>
-				<li><a href="/rss.xml">RSS feed</a></li>
-			</ul>
+			<p>
+				I am also interested in game dev, distributed systems and many other parts of programming.
+				Worked in Kaspersky, AliExpress and Microsoft.
+			</p>
 
 			<p>
 				Opinions here are my own. If you find a mistake, the source of this site is public and

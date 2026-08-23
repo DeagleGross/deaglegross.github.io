@@ -1,12 +1,16 @@
 ## Development
 
-When starting the dev server, use background mode:
+Astro is installed locally in `node_modules`, not globally, so always invoke it
+through `npm run` or `npx` — a bare `astro` command will not resolve.
+
+Start the dev server in background mode:
 
 ```
-astro dev --background
+npx astro dev --background
 ```
 
-Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+Manage the background server with `npx astro dev stop`, `npx astro dev status`,
+and `npx astro dev logs`.
 
 ## Documentation
 

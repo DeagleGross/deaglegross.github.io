@@ -1,8 +1,7 @@
 ---
-title: 'Hello, world'
-description: 'Why I finally set up a blog, what I plan to write about, and how this site is built.'
+title: 'Asprify or Doomify?'
+description: 'Can you play Doom while managing your Aspire resources?'
 pubDate: 'Aug 23 2026'
-heroImage: '../../assets/blog-placeholder-1.jpg'
 ---
 
 I spend most of my day in C# — mostly inside [dotnet/aspnetcore](https://github.com/dotnet/aspnetcore), where a
