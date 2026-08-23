@@ -12,6 +12,16 @@ export default defineConfig({
 	// break CSS and navigation. `base` is only for project sites.
 	site: 'https://deaglegross.github.io',
 	integrations: [mdx(), sitemap()],
+	vite: {
+		build: {
+			// Vite inlines small assets as base64 data URIs. That is fine for icons
+			// but wrong for video: a data URI cannot serve HTTP range requests, so
+			// the browser loses seeking and must load the whole clip up front.
+			// Always emit media as real files and leave everything else on the default.
+			assetsInlineLimit: (filePath) =>
+				/\.(mp4|webm|mov|m4v|ogv)$/i.test(filePath) ? false : undefined,
+		},
+	},
 	fonts: [
 		{
 			provider: fontProviders.local(),
