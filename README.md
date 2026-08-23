@@ -39,12 +39,15 @@ description: 'Shown on the index, in the RSS feed, and as the meta description.'
 pubDate: 'Aug 23 2026'
 updatedDate: 'Aug 24 2026'
 heroImage: './hero.png'
+sourceUrl: 'https://github.com/DeagleGross/AspireDoomify'
 ---
 
 Body in Markdown. Use ```csharp fences for C#.
 ````
 
-`title`, `description` and `pubDate` are required; `updatedDate` and `heroImage` are optional. `heroImage` is a path relative to the Markdown file — `./hero.png` for a colocated image. Astro optimizes and fingerprints it at build time, so large source images are fine.
+`title`, `description` and `pubDate` are required; `updatedDate`, `heroImage` and `sourceUrl` are optional. `heroImage` is a path relative to the Markdown file — `./hero.png` for a colocated image. Astro optimizes and fingerprints it at build time, so large source images are fine.
+
+`sourceUrl` renders as a "Source code" link under the post title, with a GitHub mark if it points at GitHub. It is validated as a real URL, so a typo fails the build.
 
 Inline images work the same way: `![Alt text](./diagram.png)`.
 

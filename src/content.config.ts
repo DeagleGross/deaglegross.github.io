@@ -16,6 +16,9 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
+			// Optional link to the code behind the post, rendered under the title.
+			// `.url()` means a malformed link fails the build rather than shipping.
+			sourceUrl: z.url().optional(),
 		}),
 });
 
