@@ -50,40 +50,43 @@ Inline images work the same way: `![Alt text](./diagram.png)`.
 
 ## Adding a video
 
-Astro optimizes images but passes video through untouched, so video uses a plain HTML5 player via [`src/components/Video.astro`](src/components/Video.astro).
+Astro optimizes images but passes video through untouched, so video is a plain HTML5 player. Put the file in `public/videos/` and reference it by absolute path — this works in a normal `index.md`:
 
-A component has to be imported, so the post must be `index.mdx` instead of `index.md`. Nothing else changes — MDX is Markdown that also accepts imports.
+```markdown
+<video src="/videos/demo.mp4" controls playsinline preload="metadata"></video>
+```
+
+`preload="metadata"` matters: without it the browser downloads the whole clip on page load rather than just enough to draw the player.
+
+For a silent looping clip in place of a GIF:
+
+```markdown
+<video src="/videos/demo.mp4" autoplay loop muted playsinline></video>
+```
+
+`muted` is not optional there — browsers refuse to autoplay video with sound.
+
+Anything in `public/` is copied to the site verbatim, which means a typo'd path still builds green and only fails as a 404 in the browser. If you would rather have a broken video break the build, rename the post to `index.mdx`, keep the file next to it, and use [`src/components/Video.astro`](src/components/Video.astro) instead:
 
 ````mdx
----
-title: 'Playing Doom in the Aspire dashboard'
-description: 'Shown on the index and in the RSS feed.'
-pubDate: 'Aug 23 2026'
----
-
 import Video from '../../../components/Video.astro';
 import demo from './demo.mp4';
 
-<Video src={demo} caption="The dashboard, mid-descent." />
+<Video src={demo} caption="Doom, mid-descent." />
 ````
 
-Props: `src` (required), `poster`, `caption`, `autoplay`, `controls`.
+### Compress before committing
 
-`autoplay` is the silent looping treatment for short screen recordings — it forces `muted` and `loop`, since browsers refuse to autoplay audio. Pair with `controls={false}` for a GIF-like clip:
-
-```mdx
-<Video src={demo} autoplay controls={false} />
-```
-
-Add a `poster` for anything longer than a few seconds, otherwise the player is a blank rectangle until the reader presses play.
-
-Video is committed to the repo and counts against the GitHub Pages limits (1 GB repo, 100 MB per file, soft 100 GB/month bandwidth), so re-encode before committing:
+Video is committed to the repo permanently and counts against the GitHub Pages limits (1 GB repo, 100 MB per file, soft 100 GB/month bandwidth). Screen recordings are usually enormously overspecified — the first one here went from 22.5 MB to 3.1 MB with no visible loss:
 
 ```bash
-ffmpeg -i raw.mp4 -vcodec libx264 -crf 28 -preset slow -an -movflags +faststart demo.mp4
+ffmpeg -i raw.mp4 -vcodec libx264 -crf 28 -preset slow -pix_fmt yuv420p \
+  -c:a aac -b:a 96k -movflags +faststart demo.mp4
 ```
 
-`-an` drops the audio track and `-movflags +faststart` lets playback begin before the whole file downloads. For anything long, host on YouTube and embed instead.
+Raise `-crf` to shrink further (28 is already conservative), add `-vf scale=1280:-2` to halve it again, or `-an` to drop audio entirely. `-movflags +faststart` lets playback begin before the whole file arrives.
+
+Do not convert to GIF to save space — GIF has no motion compensation and caps at 256 colours, so the same clip lands in the hundreds of megabytes.
 
 ## Deployment
 

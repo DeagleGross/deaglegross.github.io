@@ -22,5 +22,14 @@ var api = builder.AddProject<Projects.AspireDoomify_Api>("api")
     .WithReference(database);
 ```
 
-This aspire host is trivial - we have a web-api, which has a dependency on redis, azure storage and postgres.
+This aspire host is trivial - we have a web-api, which has a dependency on redis, azure storage and postgres. Normally you would start your application and dependencies via `aspire run`, and see them green on the dashboard - but they are not running, except a mysterious **gzdoom**.
 
+![aspire-run](./aspire-run-1.png)
+
+What I really like about aspire is extensibility in any part of the stack. It's up to you - just building a specific app and defining/managing dependencies or starting "from scratch" by using your own `IDistributedApplicationBuilder`. `DoomedApplicationBuilder` is as simple as overriding `Build` behavior to:
+
+1) call `.WithExplicitStart()` on the resources (that's why they are not running by default)
+2) setup the assets/scripts/mods for [GZDoom](https://github.com/zdoom/gzdoom)
+3) add the `DoomEventBridge` service which is the connector between game and aspire.
+
+<video src="/videos/demo.mp4" controls playsinline preload="metadata"></video>
