@@ -8,7 +8,7 @@ sourceUrl: 'https://github.com/DeagleGross/AspireDoomify'
 
 _That's my first article - I want it to be short and fun._
 
-It was always exciting to read about legendary DOOM game being run in [Excel](https://github.com/Pranshul-Thakur/DOOM-in-excel) or on the [pregnancy test](https://www.reddit.com/r/gaming/comments/ncmegl/doom_running_on_a_pregnancy_test/). Since I am not a hardware expert, I decided to connect DOOM to something I am aware of (and actually even contributed a small feature to) - [Aspire](https://aspire.dev).
+It was always excited to read about legendary DOOM game being run in [Excel](https://github.com/Pranshul-Thakur/DOOM-in-excel) or on the [pregnancy test](https://www.reddit.com/r/gaming/comments/ncmegl/doom_running_on_a_pregnancy_test/). Since I am not a hardware expert, I decided to connect DOOM to something I am aware of (and actually even contributed a small feature to) - [Aspire](https://aspire.dev).
 
 Aspire is amazing: it has many definitions for different use-cases, but for our "doomification" it's a tool to manage all of the dependencies in the inner-loop. Let's consider this example:
 
