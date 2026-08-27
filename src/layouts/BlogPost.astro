@@ -16,7 +16,7 @@ const isGitHubSource = sourceUrl ? new URL(sourceUrl).hostname.endsWith('github.
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={heroImage} type="article" />
 		<style>
 			main {
 				width: calc(100% - 2em);

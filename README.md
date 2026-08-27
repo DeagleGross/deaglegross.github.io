@@ -45,7 +45,7 @@ sourceUrl: 'https://github.com/DeagleGross/AspireDoomify'
 Body in Markdown. Use ```csharp fences for C#.
 ````
 
-`title`, `description` and `pubDate` are required; `updatedDate`, `heroImage` and `sourceUrl` are optional. `heroImage` is a path relative to the Markdown file — `./hero.png` for a colocated image. Astro optimizes and fingerprints it at build time, so large source images are fine.
+`title`, `description` and `pubDate` are required; `updatedDate`, `heroImage` and `sourceUrl` are optional. `heroImage` is a path relative to the Markdown file — `./hero.png` for a colocated image. Astro optimizes and fingerprints it at build time, so large source images are fine. The same image is also used for the article's Twitter/X and other social link previews; posts without one use the blog placeholder.
 
 `sourceUrl` renders as a "Source code" link under the post title, with a GitHub mark if it points at GitHub. It is validated as a real URL, so a typo fails the build.
 
